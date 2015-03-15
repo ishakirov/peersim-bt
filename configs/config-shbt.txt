@@ -1,0 +1,34 @@
+#Config file for ShakirovBitTorrent extension
+
+random.seed 1234567890
+simulation.endtime 5*10^6
+simulation.logtime 10^3
+
+simulation.experiments 15
+
+network.size 30
+network.node peersim.core.GeneralNode
+
+protocol.urt UniformRandomTransport
+protocol.urt.mindelay 10
+protocol.urt.maxdelay 400
+
+protocol.bittorrent peersim.shakirovbittorrent.BitTorrent
+protocol.bittorrent.file_size 10
+protocol.bittorrent.transport urt
+protocol.bittorrent.max_swarm_size 15
+protocol.bittorrent.peerset_size 50
+protocol.bittorrent.first_heur 0
+protocol.bittorrent.second_heur 0
+
+init.net peersim.shakirovbittorrent.NetworkInitializer
+init.net.protocol bittorrent
+init.net.transport urt
+init.net.seeder_distr 20
+init.net.malicious_distr 40
+
+
+
+
+
+
